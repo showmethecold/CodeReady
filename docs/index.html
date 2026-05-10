@@ -49,9 +49,14 @@
         overflow: hidden;
         padding: 40px 24px 42px;
         background:
-          linear-gradient(120deg, rgba(6, 18, 18, 0.62), rgba(10, 26, 28, 0.38) 44%, rgba(255, 255, 255, 0.12)),
+          linear-gradient(
+            120deg,
+            rgba(247, 250, 249, 0.96),
+            rgba(239, 247, 246, 0.92) 46%,
+            rgba(247, 250, 249, 0.78)
+          ),
           url("screenshots/01-choose-ai-tools.png") center / cover no-repeat;
-        color: #ffffff;
+        color: var(--ink);
       }
 
       .hero::after {
@@ -82,10 +87,10 @@
         z-index: 2;
         min-height: 58px;
         padding: 9px 12px;
-        border: 1px solid rgba(255, 255, 255, 0.34);
+        border: 1px solid rgba(255, 255, 255, 0.82);
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.18);
-        box-shadow: 0 18px 56px rgba(0, 0, 0, 0.18);
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 18px 56px rgba(25, 49, 45, 0.14);
         backdrop-filter: blur(26px) saturate(1.45);
         -webkit-backdrop-filter: blur(26px) saturate(1.45);
       }
@@ -125,13 +130,14 @@
         align-items: center;
         padding: 0 13px;
         border-radius: 999px;
-        color: rgba(255, 255, 255, 0.86);
+        color: #4d5a56;
         font-weight: 700;
         text-decoration: none;
       }
 
       .navLinks a:hover {
-        background: rgba(255, 255, 255, 0.16);
+        background: rgba(31, 118, 108, 0.1);
+        color: var(--ink);
       }
 
       .heroCopy {
@@ -150,7 +156,7 @@
       }
 
       .hero .eyebrow {
-        color: #d8fff3;
+        color: var(--accent);
       }
 
       h1,
@@ -166,16 +172,14 @@
         font-size: clamp(44px, 7vw, 84px);
         line-height: 0.98;
         letter-spacing: 0;
-        text-shadow: 0 20px 70px rgba(0, 0, 0, 0.34);
       }
 
       .heroCopy p {
         max-width: 640px;
         margin-top: 22px;
-        color: rgba(255, 255, 255, 0.9);
+        color: #4c5d59;
         font-size: 20px;
         line-height: 1.55;
-        text-shadow: 0 12px 40px rgba(0, 0, 0, 0.26);
       }
 
       .actions {
@@ -210,13 +214,13 @@
       }
 
       .secondary {
-        color: #ffffff;
-        background: rgba(255, 255, 255, 0.18);
+        color: #173632;
+        background: rgba(255, 255, 255, 0.72);
       }
 
       .note {
         margin-top: 16px;
-        color: rgba(255, 255, 255, 0.78);
+        color: #6a7773;
         font-size: 14px;
       }
 
@@ -518,7 +522,6 @@
           <a href="#intro">What it is</a>
           <a href="#options">Options</a>
           <a href="#features">Features</a>
-          <a href="#walkthrough">Screenshots</a>
           <a href="https://github.com/showmethecold/CodeReady">GitHub</a>
         </div>
       </nav>
@@ -679,7 +682,7 @@
       <section id="walkthrough">
         <div class="sectionInner">
           <div class="sectionHeader">
-            <span class="eyebrow">Screenshots</span>
+            <span class="eyebrow">How it looks</span>
             <h2>See the main setup steps.</h2>
           </div>
 
