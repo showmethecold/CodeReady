@@ -249,7 +249,10 @@
         gap: 16px;
       }
 
-      .feature {
+      .feature,
+      .introPanel,
+      .optionCard,
+      .stepCard {
         min-height: 170px;
         padding: 22px;
         border: 1px solid rgba(255, 255, 255, 0.72);
@@ -258,6 +261,103 @@
         box-shadow: var(--shadow);
         backdrop-filter: blur(24px) saturate(1.35);
         -webkit-backdrop-filter: blur(24px) saturate(1.35);
+      }
+
+      .introGrid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(280px, 1.05fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .introPanel {
+        display: grid;
+        align-content: center;
+        gap: 14px;
+        min-height: 320px;
+      }
+
+      .introPanel h2 {
+        font-size: clamp(32px, 4vw, 52px);
+        line-height: 1.05;
+      }
+
+      .introPanel p {
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.55;
+      }
+
+      .introList {
+        display: grid;
+        gap: 12px;
+      }
+
+      .introList div {
+        display: grid;
+        gap: 5px;
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.68);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.52);
+      }
+
+      .introList span,
+      .optionCard span,
+      .stepCard span {
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .optionGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 14px;
+      }
+
+      .optionCard {
+        min-height: 210px;
+      }
+
+      .optionIcon {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        margin-bottom: 16px;
+        border-radius: 14px;
+        color: #0d403b;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(217, 255, 244, 0.78)),
+          var(--accent-soft);
+        font-weight: 900;
+      }
+
+      .optionCard h3,
+      .stepCard h3 {
+        margin-bottom: 9px;
+      }
+
+      .flowGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .stepCard {
+        min-height: 210px;
+      }
+
+      .stepNumber {
+        display: inline-grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        margin-bottom: 16px;
+        border-radius: 999px;
+        color: #ffffff;
+        background: var(--accent);
+        font-weight: 900;
       }
 
       .feature h3 {
@@ -391,6 +491,9 @@
           font-size: clamp(40px, 12vw, 64px);
         }
 
+        .introGrid,
+        .optionGrid,
+        .flowGrid,
         .featureGrid,
         .screenshotBlock,
         .screenshotBlock:nth-child(even),
@@ -412,6 +515,8 @@
           <span>CodeReady</span>
         </div>
         <div class="navLinks">
+          <a href="#intro">What it is</a>
+          <a href="#options">Options</a>
           <a href="#features">Features</a>
           <a href="#walkthrough">Screenshots</a>
           <a href="https://github.com/showmethecold/CodeReady">GitHub</a>
@@ -440,6 +545,77 @@
     </header>
 
     <main>
+      <section id="intro">
+        <div class="sectionInner">
+          <div class="introGrid">
+            <div class="introPanel">
+              <span class="eyebrow">What CodeReady is</span>
+              <h2>A guided setup app for AI coding tools on Windows.</h2>
+              <p>
+                CodeReady helps with the first ten minutes before you can use an AI coding tool. It checks what is
+                already installed, explains what is missing, shows every command before it runs, and gives you the next
+                sign-in step after install.
+              </p>
+            </div>
+            <div class="introList">
+              <div>
+                <strong>It shows the commands</strong>
+                <span>You can review the exact install commands before CodeReady runs them.</span>
+              </div>
+              <div>
+                <strong>It avoids extra setup</strong>
+                <span>Node.js is installed only when the selected tools need it.</span>
+              </div>
+              <div>
+                <strong>It keeps accounts separate</strong>
+                <span>Sign-in happens through each tool's normal account flow. CodeReady does not store API keys.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="options">
+        <div class="sectionInner">
+          <div class="sectionHeader">
+            <span class="eyebrow">Options</span>
+            <h2>Choose the tools you want, then add visual helpers when you are ready.</h2>
+            <p>
+              AI coding tools are off by default. CodeReady lets you pick Claude Code, Codex, Gemini CLI, and optional
+              beginner-friendly tools separately.
+            </p>
+          </div>
+
+          <div class="optionGrid">
+            <div class="optionCard">
+              <div class="optionIcon">C</div>
+              <h3>Claude Code</h3>
+              <span>Install Claude's terminal coding assistant and sign in with your Claude account.</span>
+            </div>
+            <div class="optionCard">
+              <div class="optionIcon">O</div>
+              <h3>OpenAI Codex</h3>
+              <span>Install Codex CLI, then sign in with ChatGPT to start a coding session.</span>
+            </div>
+            <div class="optionCard">
+              <div class="optionIcon">G</div>
+              <h3>Gemini CLI</h3>
+              <span>Install Google's Gemini terminal tool and connect it with Google sign-in.</span>
+            </div>
+            <div class="optionCard">
+              <div class="optionIcon">VS</div>
+              <h3>VS Code</h3>
+              <span>Open a project folder and view exactly which files and lines the AI changed.</span>
+            </div>
+            <div class="optionCard">
+              <div class="optionIcon">GH</div>
+              <h3>GitHub Desktop</h3>
+              <span>Save checkpoints, compare work, and upload a project when you want to share it.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="features">
         <div class="sectionInner">
           <div class="sectionHeader">
@@ -463,6 +639,38 @@
             <div class="feature">
               <h3>Start using them</h3>
               <p>Get account sign-in guidance and first commands after install.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="flow">
+        <div class="sectionInner">
+          <div class="sectionHeader">
+            <span class="eyebrow">How it works</span>
+            <h2>From a fresh Windows PC to your first AI coding command.</h2>
+          </div>
+
+          <div class="flowGrid">
+            <div class="stepCard">
+              <span class="stepNumber">1</span>
+              <h3>Pick tools</h3>
+              <span>Choose Claude Code, Codex, Gemini CLI, or any combination.</span>
+            </div>
+            <div class="stepCard">
+              <span class="stepNumber">2</span>
+              <h3>Check setup</h3>
+              <span>CodeReady checks Windows Package Manager, Git, Node.js, npm, and installed tools.</span>
+            </div>
+            <div class="stepCard">
+              <span class="stepNumber">3</span>
+              <h3>Install safely</h3>
+              <span>Review the install commands, then let CodeReady run them one step at a time.</span>
+            </div>
+            <div class="stepCard">
+              <span class="stepNumber">4</span>
+              <h3>Start using it</h3>
+              <span>Follow the account sign-in guide and try the first command for each tool.</span>
             </div>
           </div>
         </div>
