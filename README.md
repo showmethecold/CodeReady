@@ -4,6 +4,12 @@ CodeReady is a Windows-first setup wizard for installing AI coding tools without
 
 The app uses a curated catalog of official install recipes. It shows the exact commands before running them, verifies the installed commands afterward, and does not store API keys or provider login credentials.
 
+## Website
+
+Project website: https://showmethecold.github.io/CodeReady/
+
+Download the Windows installer from the [Releases page](https://github.com/showmethecold/CodeReady/releases).
+
 ## What CodeReady helps with
 
 - Pick the AI coding tools you want to install.
