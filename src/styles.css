@@ -1,0 +1,904 @@
+:root {
+  color: #1c1f23;
+  background: #f6f7f4;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  min-height: 100vh;
+  background:
+    linear-gradient(90deg, #f6f7f4 0%, #f6f7f4 280px, transparent 280px),
+    radial-gradient(circle at 75% 15%, rgba(39, 118, 110, 0.12), transparent 28%),
+    #fcfcfa;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 28px 22px;
+  border-right: 1px solid #dde0da;
+  background: #f6f7f4;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brandMark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  color: #ffffff;
+  background: #276c65;
+}
+
+.brand strong,
+.brand span {
+  display: block;
+}
+
+.brand strong {
+  font-size: 17px;
+}
+
+.brand span,
+.sidebarNote,
+.systemItem span,
+.verifyItem span,
+.toolContent > span,
+.nextSteps p {
+  color: #626b68;
+}
+
+.steps {
+  display: grid;
+  gap: 8px;
+}
+
+.stepButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  color: #4c5451;
+}
+
+.stepButton.active {
+  color: #163f3b;
+  background: #e7efed;
+}
+
+.stepButton.complete {
+  color: #276c65;
+}
+
+.stepIcon {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+}
+
+.sidebarNote {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  padding: 14px;
+  border: 1px solid #dde0da;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.workspace {
+  width: min(1080px, 100%);
+  padding: 34px;
+}
+
+.panel {
+  display: grid;
+  gap: 24px;
+}
+
+.introPanel {
+  max-width: 900px;
+}
+
+.introCopy {
+  display: grid;
+  gap: 14px;
+  padding-top: 18px;
+}
+
+.eyebrow {
+  color: #276c65;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  max-width: 820px;
+  color: #161918;
+  font-size: 40px;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+h2 {
+  font-size: 17px;
+  letter-spacing: 0;
+}
+
+.introCopy p {
+  max-width: 720px;
+  color: #4f5855;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.panelHeader h1 {
+  margin-top: 8px;
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+.statusStrip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 760px;
+  padding: 16px 18px;
+  border: 1px solid #d8ddd6;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.metricLabel {
+  display: block;
+  margin-bottom: 4px;
+  color: #626b68;
+  font-size: 13px;
+}
+
+.systemGrid,
+.verificationList {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.systemGrid.compact {
+  max-width: 760px;
+}
+
+.systemItem,
+.verifyItem,
+.progressRow,
+.commandRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 68px;
+  padding: 14px;
+  border: 1px solid #dde0da;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.systemItem strong,
+.verifyItem strong,
+.progressRow strong,
+.commandRow strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.statusDot {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  border: 2px solid #bcc4c0;
+  border-radius: 999px;
+}
+
+.statusIcon.success {
+  color: #24725d;
+}
+
+.statusIcon.failed {
+  color: #b53b35;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.actions.split {
+  justify-content: space-between;
+}
+
+.primaryButton,
+.secondaryButton,
+.ghostButton,
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.primaryButton {
+  padding: 0 16px;
+  color: #ffffff;
+  background: #276c65;
+}
+
+.primaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.secondaryButton,
+.ghostButton {
+  padding: 0 14px;
+  color: #27312e;
+  border-color: #cfd6d2;
+  background: #ffffff;
+}
+
+.iconButton {
+  width: 42px;
+  color: #27312e;
+  border-color: #cfd6d2;
+  background: #ffffff;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 4px;
+}
+
+.sectionTitle span {
+  color: #626b68;
+  font-size: 13px;
+}
+
+.toolGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.toolGrid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.toolCard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 12px;
+  min-height: 220px;
+  padding: 16px;
+  text-align: left;
+  border: 1px solid #d8ddd6;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.toolCard.selected {
+  border-color: #276c65;
+  box-shadow: 0 0 0 3px rgba(39, 108, 101, 0.12);
+}
+
+.toolCard.installedOnly {
+  cursor: default;
+}
+
+.toolCard:disabled {
+  opacity: 1;
+}
+
+.toolIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  color: #276c65;
+  background: #e7efed;
+}
+
+.toolContent {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toolTitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: #171b19;
+}
+
+.installedBadge {
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: #276c65;
+  background: #e7efed;
+  font-size: 12px;
+}
+
+.commandPreview,
+code {
+  overflow-wrap: anywhere;
+  color: #39413e;
+  font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 12px;
+}
+
+.commandPreview {
+  margin-top: auto;
+}
+
+.checkbox {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #aeb8b3;
+  border-radius: 6px;
+  color: #ffffff;
+  background: #ffffff;
+}
+
+.toolCard.selected .checkbox {
+  border-color: #276c65;
+  background: #276c65;
+}
+
+.commandList,
+.progressList,
+.eventLog {
+  display: grid;
+  gap: 10px;
+}
+
+.contextCheck {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #d8ddd6;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.workflowMap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch;
+  gap: 12px;
+  max-width: 980px;
+}
+
+.workflowMap > svg {
+  align-self: center;
+  color: #7a8580;
+}
+
+.workflowNode {
+  display: grid;
+  gap: 10px;
+  min-height: 150px;
+  padding: 18px;
+  border: 1px solid #d8ddd6;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.workflowNode svg {
+  color: #276c65;
+}
+
+.workflowNode span {
+  color: #626b68;
+  line-height: 1.45;
+}
+
+.optionalExplainers {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 14px;
+}
+
+.explainerPanel {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid #d8ddd6;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.explainerCopy {
+  display: grid;
+  gap: 8px;
+}
+
+.explainerCopy p {
+  color: #626b68;
+  line-height: 1.5;
+}
+
+.vscodePreview {
+  overflow: hidden;
+  border: 1px solid #cfd6d2;
+  border-radius: 8px;
+  background: #1f2528;
+  box-shadow: 0 14px 34px rgba(31, 47, 43, 0.14);
+}
+
+.vscodeTopBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 34px;
+  padding: 0 12px;
+  color: #d8e2df;
+  background: #2e383c;
+  font-size: 12px;
+}
+
+.vscodeTopBar span {
+  width: 46px;
+  height: 10px;
+  border-radius: 999px;
+  background: #536166;
+}
+
+.vscodeBody {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  min-height: 235px;
+}
+
+.vscodeFiles {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 12px 10px;
+  border-right: 1px solid #3d474b;
+  background: #252d30;
+}
+
+.vscodeSectionTitle {
+  margin-bottom: 7px;
+  color: #9faeaa;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.fileRow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 28px;
+  padding: 0 8px;
+  border-radius: 6px;
+  color: #c6d2cf;
+  font-size: 13px;
+}
+
+.fileRow.changed {
+  color: #ffffff;
+  background: rgba(76, 133, 125, 0.28);
+}
+
+.vscodeDiff {
+  display: grid;
+  align-content: start;
+  padding: 12px;
+}
+
+.diffHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: #dbe5e2;
+  font-size: 13px;
+}
+
+.diffHeader span {
+  color: #99aaa5;
+}
+
+.diffLine {
+  min-height: 30px;
+  padding: 7px 10px;
+  border-left: 3px solid transparent;
+  color: #dbe5e2;
+  font-family: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.diffLine.removed {
+  border-left-color: #d46a5d;
+  background: rgba(212, 106, 93, 0.18);
+}
+
+.diffLine.added {
+  border-left-color: #4fbe8d;
+  background: rgba(79, 190, 141, 0.18);
+}
+
+.githubReasonGrid {
+  display: grid;
+  gap: 10px;
+}
+
+.githubReasonGrid > div {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 5px 10px;
+  min-height: 82px;
+  padding: 14px;
+  border: 1px solid #d8ddd6;
+  border-radius: 8px;
+  background: #f8faf8;
+}
+
+.githubReasonGrid svg {
+  grid-row: span 2;
+  color: #276c65;
+}
+
+.githubReasonGrid span {
+  color: #626b68;
+  line-height: 1.4;
+}
+
+.blockedBox,
+.readyBox,
+.notice,
+.nextSteps {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #d8ddd6;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.blockedBox {
+  border-color: #ebc1bd;
+  background: #fff7f6;
+}
+
+.readyBox {
+  border-color: #b9d9cf;
+  background: #f3fbf8;
+}
+
+.notice.warning {
+  margin-bottom: 16px;
+  border-color: #ebd6a5;
+  background: #fff9ea;
+}
+
+.blockedBox p,
+.readyBox p,
+.eventLog span {
+  margin-top: 5px;
+  color: #626b68;
+}
+
+.blockedBox a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+  color: #276c65;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.progressRow code,
+.commandRow code {
+  display: block;
+}
+
+.nextSteps {
+  display: grid;
+}
+
+.startGuideList {
+  display: grid;
+  gap: 16px;
+}
+
+.guideIntro {
+  display: grid;
+  gap: 8px;
+  max-width: 760px;
+}
+
+.guideIntro p,
+.guideCopy p {
+  color: #626b68;
+  line-height: 1.5;
+}
+
+.startGuideCard {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+  gap: 18px;
+  padding: 18px;
+  border: 1px solid #d8ddd6;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.guideCopy {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.guideCopy ol {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 22px;
+  color: #2c3431;
+}
+
+.guideCopy a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  color: #276c65;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.guideVisual {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.mockWindow {
+  overflow: hidden;
+  border: 1px solid #cfd6d2;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(31, 47, 43, 0.12);
+}
+
+.terminalMock {
+  min-height: 205px;
+  background: #1f2725;
+}
+
+.browserMock {
+  min-height: 155px;
+}
+
+.mockHeader {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 0 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.browserMock .mockHeader {
+  border-bottom-color: #dde0da;
+  background: #f6f7f4;
+}
+
+.mockHeader span {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #b8c0bd;
+}
+
+.mockHeader.wide span {
+  width: 44px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.mockHeader strong {
+  color: #4f5855;
+  font-size: 12px;
+}
+
+.mockBody {
+  display: grid;
+  gap: 11px;
+  padding: 15px;
+  color: #dce7e3;
+}
+
+.mockBody code {
+  color: #ffffff;
+  line-height: 1.45;
+}
+
+.mockBody span {
+  color: #aebbb7;
+  font-size: 13px;
+}
+
+.browserContent {
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  padding: 18px;
+  text-align: center;
+}
+
+.browserContent svg {
+  color: #276c65;
+}
+
+.browserContent span {
+  color: #626b68;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.commandChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.commandChips code {
+  padding: 8px 10px;
+  border: 1px solid #d8ddd6;
+  border-radius: 8px;
+  background: #f8faf8;
+}
+
+.logLine {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  border: 1px solid #ebc1bd;
+  border-radius: 8px;
+  background: #fff7f6;
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+    background: #fcfcfa;
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid #dde0da;
+  }
+
+  .steps {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .stepButton {
+    justify-content: center;
+  }
+
+  .stepButton span:last-child,
+  .sidebarNote {
+    display: none;
+  }
+
+  .workspace {
+    padding: 22px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .systemGrid,
+  .toolGrid,
+  .toolGrid.two,
+  .verificationList,
+  .workflowMap,
+  .optionalExplainers,
+  .startGuideCard {
+    grid-template-columns: 1fr;
+  }
+
+  .vscodeBody {
+    grid-template-columns: 1fr;
+  }
+
+  .vscodeFiles {
+    border-right: 0;
+    border-bottom: 1px solid #3d474b;
+  }
+
+  .workflowMap > svg {
+    display: none;
+  }
+
+}
